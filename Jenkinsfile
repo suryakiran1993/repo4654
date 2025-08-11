@@ -21,7 +21,7 @@ pipeline {
                     rmdir /S /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\reactstudentapi"
                 )
                 mkdir "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\reactstudentapi"
-                xcopy /E /I /Y "STUDENTAPI-REACT\\dist\\*" "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\reactstudentapi\\"
+                xcopy /E /I /Y dist\* "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\reactstudentapi"
                 '''
             }
         }
@@ -40,12 +40,12 @@ pipeline {
             steps {
         bat '''
         if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\springbootstudentapi.war" (
-            del /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\springbootstudentapi.war"
+            del /Q "C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\myspringboot.war"
         )
         if exist "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\springbootstudentapi" (
-            rmdir /S /Q "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\springbootstudentapi"
+            rmdir /S /Q "C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\myspringboot"
         )
-        copy "STUDENTAPI-SPRINGBOOT\\target\\*.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\springbootstudentapi.war"
+        copy "STUDENTAPI-SPRINGBOOT\\target\\*.war" "C:\Program Files\Apache Software Foundation\Tomcat 10.1\webapps\"
         '''
     }
 }
