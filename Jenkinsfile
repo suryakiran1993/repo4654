@@ -50,15 +50,6 @@ pipeline {
             }
         }
 
-        // ===== RESTART TOMCAT =====
-        stage('Restart Tomcat') {
-            steps {
-                bat '''
-                net stop Tomcat10
-                net start Tomcat10
-                '''
-            }
-        }
     }
 
     post {
